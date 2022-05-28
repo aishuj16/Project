@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title> College Management</title>
+	<style>
+		*{font-size:40px ; font-family: Calibri }
+		body{background-color: lightgray}
+		.nav{background-color:black; }
+		.nav a { color:white ; text-decoration:none ; padding:50px;}
+	</style>
+</head>
+
+<body>
+<center>
+	<div class="nav">
+		<a href="{% url 'home' %}">Home</a>
+		<a href="{% url 'dept' %}">Department</a>
+		<a href="{% url 'std' %}">Student</a>
+	</div>
+	<h1>Department Page</h1>
+
+	<a href="{% url 'Adept' %}">Add Department</a>
+		<br><br>
+	<table border ="2" style="width:30% ; align:center">
+			<tr>
+			<th>D-ID</th>
+			<th> D - Name</th>
+			<th> Remove</th>
+			</tr>
+		{% for d in data %}
+			<tr>	
+				<td> {{ d.did }}</td>
+				<td> {{ d.dname }}</td>
+				<td> <a href="{% url 'remove' d=d.did%}" onclick = "return confirm('Are you Sure ?')"> Delete</a></td>	
+			</tr>
+
+		{% endfor %}
+	</table>
+</center>
+</body>
+</html>
