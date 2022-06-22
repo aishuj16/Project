@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% block content %}
+<h1>Sign up</h1>
+<div class="container-fluid">
+    <div class="p-4 m-4">
+            <form action="/signup" method="POST">
+              {% csrf_token %}
+
+              {% if error %}
+                <div class="alert alert-danger" role="alert">
+                {{error}}
+                </div>
+              {% endif %}
+
+            <div class="form-group col-lg-4 mx-auto border rounded pt-4 pb-4">
+
+            <h3 class="alert alert-light border rounded ">Create Account</h3>
+
+
+              <label for="">First Name</label>
+              <input type="text" value="{{values.fname}}" name="fname" id="fname" class="form-control" placeholder="Aishwarya">
+
+              <label for="">Last Name</label>
+              <input type="text" value="{{values.lname}}" name="lname" id="lname" class="form-control" placeholder="Rai">
+
+              <label for="">Phone</label>
+              <input type="number" value="{{values.phone}}" name="phone" id="phone" class="form-control" placeholder="mobile">
+
+              <label for="">Email</label>
+              <input type="email" value="{{values.email}}" name="email" id="email" class="form-control" placeholder="example@gmail.com">
+
+              <label for="">Password</label>
+              <input type="password" name="pass" id="pass" class="form-control" placeholder="**********">
+              
+            </div>
+            <div  class="form-group col-lg-4 mx-auto" >
+                <input type="submit" value="Sign Up" class="btn btn-success pt-2">
+            </div>
+
+          </form>
+    </div>
+</div>
+{% endblock %}
